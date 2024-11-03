@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 
+
 export const Nav = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
 
@@ -9,71 +10,89 @@ export const Nav = () => {
     setEstaAbierto(!estaAbierto);
   };
 
+  // Función para cerrar el menú
+  const cerrarMenu = () => {
+    setEstaAbierto(false);
+  };
+
   return (
     <>
-      <nav className="flex p-4 space-x-5 uppercase border border-gray-600 border-solid bg-slate-900 justify-end">
-        <div className="flex space-x-10 mr-8">
+      <nav className="top-0 left-0 w-full flex items-center p-6 space-x-5 uppercase border-b bg-[#724b82] border-solid justify-between z-20 text-[1rem]">
+        {/* Contenedor del ícono */}
+        <div className="flex  imagen items-center space-x-3 [@media(max-width:640px)]:relative [@media(max-width:640px)]:left-12">
+          <img src='/img/icono.PNG' alt="Icono" className="  w-30 h-15" />
+        </div>
+        {/* Menú de navegación en pantallas grandes */}
+        <div className="space-x-10 hidden md:flex mr-8">
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-sky-500 font-semibold border-b-2 border-sky-500"
-                : "text-gray-600 hover:text-sky-500"
+                ? "text-white font-semibold border-b-2 font-merriweather"
+                : "text-white hover:text-gray-300 font-merriweather"
             }
             to={"/"}
+            onClick={cerrarMenu}
           >
             Home
           </NavLink>
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-sky-500 font-semibold border-b-2 border-sky-500"
-                : "text-gray-600 hover:text-sky-500"
+                ? "text-white font-semibold border-b-2"
+                : "text-white hover:text-gray-300"
             }
             to={"/peludos"}
+            onClick={cerrarMenu}
           >
             Peludos
           </NavLink>
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-sky-500 font-semibold border-b-2 border-sky-500"
-                : "text-gray-600 hover:text-sky-500"
+                ? "text-white font-semibold border-b-2"
+                : "text-white hover:text-gray-300"
             }
             to={"/nosotros"}
+            onClick={cerrarMenu}
           >
             Nosotros
           </NavLink>
         </div>
+
+        {/* Botón de menú para móviles */}
         <div className="text-2xl md:hidden">
           <button onClick={menuCelular}>
-          <i class="fa-solid fa-laptop"></i>
+            <i className="fa-solid fa-bars text-[28px]"></i>
           </button>
         </div>
       </nav>
+
       {/* Menú desplegable para móviles */}
       {estaAbierto && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-blue-600 text-center">
-          <NavLink to="/" className="block w-full py-2 hover:text-gray-200 rounded p-1">
-            Inicio
+        <div className="md:hidden absolute left-0 w-full bg-white shadow-xl border-gray-200 text-center">
+          <NavLink 
+            to="/" 
+            className="block w-full py-2 hover:text-gray-200 rounded p-1 font-merriweather"
+            onClick={cerrarMenu}
+          >
+            Home
           </NavLink>
-          <NavLink to="/servicios" className="block w-full py-2 hover:text-gray-200 rounded p-1">
-            Servicios
+          <NavLink 
+            to="/peludos" 
+            className="block w-full py-2 hover:text-gray-200 rounded p-1"
+            onClick={cerrarMenu}
+          >
+            Peludos
           </NavLink>
-          <NavLink to="/nosotros" className="block w-full py-2 hover:text-gray-200 rounded p-1">
+          <NavLink 
+            to="/nosotros" 
+            className="block w-full py-2 hover:text-gray-200 rounded p-1"
+            onClick={cerrarMenu}
+          >
             Nosotros
-          </NavLink>
-          <NavLink to="/pqr" className="block w-full py-2 hover:text-gray-200 rounded p-1">
-            PQR
-          </NavLink>
-          <NavLink to="/contacto" className="block w-full py-2 hover:text-gray-200 rounded p-1">
-            Contacto
-          </NavLink>
-          <NavLink to="/ubicacion" className="block w-full py-2 hover:text-gray-200 rounded p-1">
-            Ubicación
           </NavLink>
         </div>
       )}
     </>
   );
 };
-
