@@ -1,7 +1,8 @@
+import Feed from "../components/randomFeed";
 export const Peludos = () => {
     return (
     <>
-    <p>Peludos</p>
+    <Feed/>
     </>
     );
   }
