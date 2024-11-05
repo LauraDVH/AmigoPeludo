@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+.swiper {
+  height: auto;
+  padding: 2rem ;
+  position: relative;
+ 
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color:#757575 !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ffffff !important; 
+}
+@media (max-width: 500px) {
+  .swiper {
+    height: 30rem;
+  }
+  .swiper-slide {
+    width: 20rem !important;
+    height: 30rem !important;
+  }
+  .swiper-slide img {
+    width: 20rem !important;
+    height: 30rem !important;
+  }
+}
+
+.swiper-slide img {
+  width: 30rem;
+  height: 36rem;
+  border-radius: 2rem;
+  object-fit: cover;
+
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+
+
+
+@media (max-width: 990px) {
+  .slider-controler .swiper-button-next {
+    left: 70% !important;
+    transform: translateX(-70%) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-controler .swiper-button-next {
+    left: 80% !important;
+    transform: translateX(-80%) !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .slider-controler .swiper-button-prev {
+    left: 30% !important;
+    transform: translateX(-30%) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-controler .swiper-button-prev {
+    left: 20% !important;
+    transform: translateX(-20%) !important;
+  }
+}
+
+.icono{
+    transition: transform 0.4s ease; /* Hace el zoom suave */
+}
+.icono:hover  {
+    transform: scale(1.1); /* Ajusta el nivel de zoom, 1.1 es un 10% más grande */
+  }
+
+
+
