@@ -70,14 +70,14 @@
 
 @media (max-width: 990px) {
   .slider-controler .swiper-button-prev {
-    left: 30% !important;
+    left: 10% !important;
     transform: translateX(-30%) !important;
   }
 }
 
 @media (max-width: 450px) {
   .slider-controler .swiper-button-prev {
-    left: 20% !important;
+    left: 5% !important;
     transform: translateX(-20%) !important;
   }
 }

@@ -31,7 +31,7 @@ import icono_4 from "../assets/images/VacunaPerro.png";
 export const Home = () => {
   return (
     <div className="contenedor">
-     <div className="flex flex-col md:flex-row w-full pr-1 mb-4 space-y-4 md:space-y-0 md:space-x-8 md:mt-4">
+     <div className="flex flex-col w-full pr-1 mb-4 space-y-4 md:flex-row md:space-y-0 md:space-x-8 md:mt-4">
   {/* Imagen de huellas en la esquina superior izquierda */}
   <img
     className="absolute left-0 w-24 h-24 m-2 opacity-10 top-30 md:w-48 md:h-48 md:m-4"
@@ -46,7 +46,7 @@ export const Home = () => {
   />
 
   {/* Texto principal */}
-  <div className="w-full md:w-2/3 h-auto mx-1 mt-6 text-3xl md:text-5xl text-center order-2 md:order-1 ">
+  <div className="order-2 w-full h-auto mx-1 mt-6 text-3xl text-center md:w-2/3 md:text-5xl md:order-1 ">
     <p className="font-semibold text-[rgb(113,97,239)] hover:text-[#b298dc] leading-tight mb-6 md:mb-16 font-itim m-3">
       Descubre el compañero perfecto para tu vida: Encuentra la raza de perro que se adapta a ti y a tu familia!
     </p>
@@ -61,7 +61,7 @@ export const Home = () => {
   </div>
 
   {/* Carrusel */}
-  <div className="w-full md:w-1/2 pb-2 order-1 md:order-2">
+  <div className="order-1 w-full pb-2 md:w-1/2 md:order-2">
     <Swiper
       effect={"coverflow"}
       grabCursor={true}
@@ -113,8 +113,8 @@ export const Home = () => {
         <img src={slide_image_8} alt="slider_image_8" />
       </SwiperSlide>
 
-      <div className="slider-controler">
-        <div className="transition ease-in-out swiper-button-prev hover:text-white"></div>
+      <div className="space-x-14 slider-controler ">
+        <div className="transition ease-in-out  swiper-button-prev hover:text-white"></div>
         <div className="transition ease-in-out swiper-button-next hover:text-white"></div>
       </div>
     </Swiper>
@@ -125,12 +125,12 @@ export const Home = () => {
       <div className="bg-[#EFD9CE] w-3/4 mx-auto p-6 rounded-lg shadow-2xl mt-8 mb-20">
        {/* Imagen de huellas en la esquina superior izquierda */}
        <img
-          className="absolute w-24 h-48 m-4 mt-5 left-36 top-full opacity-10"
+          className="absolute w-24 m-4 mt-5 h-248 left-36 top-full opacity-10 md:w-48 md:h-48"
           src={huellas}
           alt="Huellas"
         />
     
-        <h1 className="text-center text-5xl font-bold text-[#551a57] mb-16 titulo">
+        <h1 className="text-center text-4xl font-bold text-[#551a57] mb-16 titulo md:text-5xl">
           Te entregamos tu cachorro
         </h1>
         <div className="flex flex-wrap justify-center gap-10 text-2xl font-bold text-center text-[#957FEF]  ">
@@ -175,7 +175,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <h3 className="text-5xl font-bold text-[#551a57] mb-16 titulo text-center">Algunos de nuestros peludos</h3>
+      <h3 className="text-4xl font-bold text-[#551a57] mb-16 titulo text-center md:text-5xl">Algunos de nuestros peludos</h3>
     
     
       <Feed />
