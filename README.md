@@ -81,3 +81,8 @@ En el archivo `package.json` se encuentran los siguientes scripts:
 
 ## Despliegue
 # https://dazzling-sawine-4cbf28.netlify.app/ 
+
+## Equipo de trabajo
+- **Anny Sofia Montaño
+- **July Daniela Ramos
+- **Laura Daniela Vargas
