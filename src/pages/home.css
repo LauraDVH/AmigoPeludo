@@ -4,8 +4,6 @@
 
 
 
-
-
 .swiper {
   height: auto;
   padding: 2rem ;
@@ -38,7 +36,7 @@
 
 .swiper-slide img {
   width: 30rem;
-  height: 36rem;
+  height: 31rem;
   border-radius: 2rem;
   object-fit: cover;
 
@@ -48,8 +46,13 @@
 .swiper-slide-shadow-right {
   display: none;
 }
-
-
+.boton{
+  box-shadow: 0.5px 0.5px 6px 2px rgb(235, 185, 255);
+  border: none;
+}
+.boton:hover{
+  box-shadow: 0.5px 0.5px 6px 2px rgb(193, 50, 250);
+}
 
 @media (max-width: 990px) {
   .slider-controler .swiper-button-next {
@@ -85,6 +88,14 @@
 .icono:hover  {
     transform: scale(1.1); /* Ajusta el nivel de zoom, 1.1 es un 10% más grande */
   }
+.titulo, .contenedor{
+  font-family: 'Merriweather', serif;
+}
 
-
-
+/* home.css */
+.card-image {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
