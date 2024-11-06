@@ -1,7 +1,7 @@
 .maincontainer {
     position: relative;
     width: 18rem;
-    height: 305px;
+    height: 360px;
     perspective: 1000px; /* Permite el efecto de 3D */
     margin: 10px;
     transition: transform 0.5s;
@@ -47,6 +47,7 @@
 .card-img-top {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    height: 3rem;
 }
 
 .card-body {

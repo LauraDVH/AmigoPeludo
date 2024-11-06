@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Cards } from './card';
 import { Pagination } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Feed = () => {
     const [loading, setLoading] = useState(true); // Estado de carga
     const totalImagesNeeded = 10; // Número total de imágenes por página
     const totalImagesRequested = 100; // Límite de imágenes por solicitud
-    const navigate = useNavigate(); // Cambia useHistory por useNavigate
+    const navigate = useNavigate();
     const location = useLocation();
 
     // Función para obtener las imágenes
@@ -38,20 +38,42 @@ const Feed = () => {
 
     useEffect(() => {
         const getUniqueImages = async () => {
+            const storedImages = localStorage.getItem('allImages');
+            
+            if (storedImages) {
+                try {
+                    const parsedImages = JSON.parse(storedImages);
+                    if (Array.isArray(parsedImages) && parsedImages.length > 0) {
+                        setAllImages(parsedImages);
+                        setLoading(false);
+                        return;
+                    }
+                } catch (error) {
+                    console.error("Error parsing JSON from Local Storage:", error);
+                }
+            }
+
+            // Si no hay imágenes en Local Storage o la conversión falló, realiza una solicitud a la API
             const uniqueImages = await fetchImages();
             setAllImages(uniqueImages);
-            setLoading(false); // Cambia a false después de cargar las imágenes
+            localStorage.setItem('allImages', JSON.stringify(uniqueImages));
+            setLoading(false);
         };
+        
         getUniqueImages();
     }, []);
 
-    useEffect(() => {
+    // Memoiza las imágenes actuales para evitar recalcular si `allImages` y `location.search` no cambian
+    const currentPageImages = useMemo(() => {
         const query = new URLSearchParams(location.search);
         const page = parseInt(query.get('page') || '1', 10);
-        const startIndex = (page - 1) * totalImagesNeeded; // Calcula el índice de inicio
-        const currentImages = allImages.slice(startIndex, startIndex + totalImagesNeeded);
-        setImages(currentImages);
+        const startIndex = (page - 1) * totalImagesNeeded;
+        return allImages.slice(startIndex, startIndex + totalImagesNeeded);
     }, [allImages, location.search]);
+
+    useEffect(() => {
+        setImages(currentPageImages);
+    }, [currentPageImages]);
 
     const totalPages = Math.ceil(allImages.length / totalImagesNeeded); // Total de páginas
 
