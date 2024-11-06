@@ -66,7 +66,7 @@ Para instalar y ejecutar el proyecto en un entorno local, sigue estos pasos:
    npm run dev
    ```
 
-4. **Visita** `http://localhost:3000` para ver la aplicación en el navegador.
+4. **Visita** `http://localhost:5173` para ver la aplicación en el navegador.
 
 ## Scripts Disponibles
 
@@ -80,3 +80,9 @@ En el archivo `package.json` se encuentran los siguientes scripts:
 
 
 ## Despliegue
+# https://dazzling-sawine-4cbf28.netlify.app/ 
+
+## Equipo de trabajo
+- **Anny Sofia Montaño
+- **July Daniela Ramos
+- **Laura Daniela Vargas
