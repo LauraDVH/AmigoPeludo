@@ -29,43 +29,54 @@ const Feed = () => {
       });
       const jsonImages = await response.json();
   
+      const breedNamesSet = new Set();
+  
       if (query) {
-        // Cuando hay un query, la respuesta no siempre tiene la estructura de 'breeds'
+        // Filtramos resultados únicos en caso de búsqueda
         const searchResults = jsonImages
-          .filter(breed => breed.reference_image_id)
-          .map(breed => ({
-            breeds: [{
-              name: breed.name || "Breed Name",
-              temperament: breed.temperament || "Sin temperamento.",
-              breed_group: breed.breed_group || "Sin grupo de raza.",
-              life_span: breed.life_span || "Sin tiempo de vida.",
-              weight: breed.weight?.imperial || "Sin dato",
-              height: breed.height?.imperial || "Sin dato"
-            }],
-            url: `https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`,
-            id: breed.id || breed.reference_image_id
-          }));
+          .filter(breed => breed.reference_image_id && !breedNamesSet.has(breed.name))
+          .map(breed => {
+            breedNamesSet.add(breed.name); // Agregar al conjunto para evitar duplicados
+            return {
+              breeds: [{
+                name: breed.name || "Breed Name",
+                temperament: breed.temperament || "Sin temperamento.",
+                breed_group: breed.breed_group || "Sin grupo de raza.",
+                life_span: breed.life_span || "Sin tiempo de vida.",
+
+              }],
+              url: `https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`,
+              id: breed.id || breed.reference_image_id
+            };
+          });
         return searchResults;
       } else {
-        // En el caso de no tener un query, limpiamos la respuesta para asegurar que siempre venga la estructura correcta
-        return jsonImages.map(image => ({
-          breeds: image.breeds.length > 0 ? image.breeds : [{
-            name: image.breeds[0]?.name || "Breed Name",
-            temperament: image.breeds[0]?.temperament || "Sin temperamento.",
-            breed_group: image.breeds[0]?.breed_group || "Sin grupo de raza.",
-            life_span: image.breeds[0]?.life_span || "Sin tiempo de vida.",
-            weight: image.breeds[0]?.weight?.metric || "Sin dato",
-            height: image.breeds[0]?.height?.metric|| "Sin dato"
-          }],
-          url: image.url,
-          id: image.id || image.reference_image_id
-        }));
+        // Filtramos resultados únicos en caso de datos sin búsqueda
+        const uniqueImages = jsonImages
+          .filter(image => image.breeds.length > 0 && !breedNamesSet.has(image.breeds[0].name))
+          .map(image => {
+            breedNamesSet.add(image.breeds[0].name); // Agregar al conjunto para evitar duplicados
+            return {
+              breeds: [{
+                name: image.breeds[0]?.name || "Breed Name",
+                temperament: image.breeds[0]?.temperament || "Sin temperamento.",
+                breed_group: image.breeds[0]?.breed_group || "Sin grupo de raza.",
+                life_span: image.breeds[0]?.life_span || "Sin tiempo de vida.",
+
+              }],
+              url: image.url,
+              id: image.id || image.reference_image_id
+            };
+          });
+        return uniqueImages;
       }
     } catch (e) {
       console.error(e);
       return [];
     }
-  }  
+  }
+  
+  
 
   useEffect(() => {
     const getUniqueImages = async () => {
@@ -128,7 +139,7 @@ const Feed = () => {
       </div>
 
       {!loading && (
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-4 mb-4">
           <Pagination
             count={totalPages}
             page={parseInt(new URLSearchParams(location.search).get('page') || '1', 10)}

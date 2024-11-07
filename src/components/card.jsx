@@ -10,9 +10,7 @@ export const Cards = ({ data }) => {
     const temperament = breed.temperament || "Sin temperamento.";
     const breedGroup = breed.breed_group || "Sin grupo de raza.";
     const lifeSpan = breed.life_span || "Sin tiempo de vida.";
-    const weight = breed.weight?.imperial || "Sin dato";
-    const height = breed.height?.imperial || "Sin dato";
-
+ 
     return (
         <div className="maincontainer card" style={{ width: "18rem" }}>
             {/* Parte frontal */}
@@ -36,13 +34,6 @@ export const Cards = ({ data }) => {
                 <h2>{name}</h2>
                 <p className="p">Grupo de raza: {breedGroup}</p>
                 <p className="p">Tiempo de vida: {lifeSpan}</p>
-                <p className="p">
-                    Tamaño en cm: 
-                    <br />
-                    Ancho: {weight} cm 
-                    <br />
-                    Alto: {height} cm
-                </p>
             </div>
         </div>
     );
