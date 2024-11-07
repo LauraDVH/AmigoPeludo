@@ -28,20 +28,7 @@ export const Nosotros = () => {
               Misión
             </h1>
             <p className="text-center text-base md:text-lg lg:text-xl">
-              Nuestra misión es proporcionar una plataforma completa y confiable
-              que permita a los futuros propietarios de mascotas tomar
-              decisiones bien informadas antes de adquirir un perro. Queremos
-              garantizar que cada cliente comprenda plenamente las
-              características, necesidades y comportamientos específicos de la
-              raza que elige, desde su tamaño y peso en la adultez hasta su
-              temperamento y expectativa de vida. Nuestro objetivo es fomentar
-              una compra responsable y consciente, ayudando a los futuros dueños
-              a elegir una mascota que se adapte a su estilo de vida, ya sea
-              para compañía en el hogar, actividades familiares, trabajo
-              especializado como perros guía, o para prácticas deportivas como
-              la caza. Al brindar información detallada y asesoramiento
-              personalizado, buscamos reducir la cantidad de perros que son
-              abandonados o reubicados debido a expectativas no cumplidas.
+            Nuestra misión es ofrecer una plataforma confiable para que futuros dueños de mascotas tomen decisiones informadas al elegir un perro. Queremos asegurar que cada cliente comprenda las características, necesidades y comportamiento de la raza que selecciona, fomentando una elección responsable y consciente. Al proporcionar información detallada y asesoría personalizada, buscamos reducir el abandono y la reubicación de perros por expectativas no cumplidas.
             </p>
           </div>
 

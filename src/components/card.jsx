@@ -1,39 +1,48 @@
-import "/src/targetas.css"; // Asegúrate de que la ruta sea correcta
-
+import "/src/targetas.css";
 export const Cards = ({ data }) => {
-    const breed = data.breeds[0] || {};
+    console.log(data);  // Verifica qué datos estás recibiendo
+
+    // Validamos que 'data' y 'data.breeds' existan y que 'breeds' tenga al menos un elemento
+    const breed = (data && data.breeds && Array.isArray(data.breeds) && data.breeds.length > 0) ? data.breeds[0] : {};
+
+    // Asegúrate de que 'breed' tenga propiedades válidas
+    const name = breed.name || "Breed Name";
+    const temperament = breed.temperament || "Sin temperamento.";
+    const breedGroup = breed.breed_group || "Sin grupo de raza.";
+    const lifeSpan = breed.life_span || "Sin tiempo de vida.";
+    const weight = breed.weight?.imperial || "Sin dato";
+    const height = breed.height?.imperial || "Sin dato";
 
     return (
         <div className="maincontainer card" style={{ width: "18rem" }}>
             {/* Parte frontal */}
             <div className="front">
-                <img 
-                    src={data.url} 
-                    alt="Card image cap" 
-                    className="card-img-top" 
-                    style={{ width: "100%", height: "250px", objectFit: "cover" }} 
+                <img
+                    src={data.url || "default_image_url"} // Usar imagen por defecto si no hay URL
+                    alt="Card image cap"
+                    className="card-img-top"
+                    style={{ width: "100%", height: "250px", objectFit: "cover" }}
                 />
                 <div className="card-body">
-                    <h5 className="card-title">{breed.name || "Breed Name"}</h5> {/* Título de la tarjeta */}
+                    <h5 className="card-title">{name}</h5> {/* Título de la tarjeta */}
                     <p className="card-text">
-                        {breed.temperament || "sin temperamento."}
+                        {breed.temperament}
                     </p>
                 </div>
             </div>
             
             {/* Parte trasera */}
             <div className="back">
-            <h2>{breed.name || "Breed Name"}</h2>
-                <p className="p">Raza: {breed.breed_group || "sin raza."}</p>
-                <p className="p">Tiempo de vida: {breed.life_span || "sin tiempo de vida."}</p>
+                <h2>{name}</h2>
+                <p className="p">Grupo de raza: {breedGroup}</p>
+                <p className="p">Tiempo de vida: {lifeSpan}</p>
                 <p className="p">
                     Tamaño en cm: 
                     <br />
-                    Ancho: {breed.weight?.imperial || "sin dato"} cm 
+                    Ancho: {weight} cm 
                     <br />
-                    Alto: {breed.height?.imperial || "sin dato"} cm
+                    Alto: {height} cm
                 </p>
-                
             </div>
         </div>
     );
