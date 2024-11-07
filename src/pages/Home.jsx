@@ -31,37 +31,37 @@ import icono_4 from "../assets/images/VacunaPerro.png";
 export const Home = () => {
   return (
     <div className="contenedor">
-     <div className="flex flex-col w-full pr-1 mb-4 space-y-4 md:flex-row md:space-y-0 md:space-x-8 md:mt-4">
+     <div className="flex flex-col w-full pr-1 mb-4 space-y-4 md:flex-row md:space-y-0 md:space-x-8 md:mt-4 xl:space-y-0 xl:space-x-8 xl:mt-4">
   {/* Imagen de huellas en la esquina superior izquierda */}
   <img
-    className="absolute left-0 w-24 h-24 m-2 opacity-10 top-30 md:w-48 md:h-48 md:m-4"
+    className="absolute left-0 w-24 h-24 m-2 opacity-10 top-30 md:w-48 md:h-48 md:m-4 xl:w-48 xl:h-48 xl:m-4"
     src={huellas}
     alt="Huellas"
   />
   {/* Imagen de huellas en la esquina superior izquierda */}
   <img
-    className="absolute w-24 h-24 m-2 opacity-10 top-2/3 left-1/4 md:w-48 md:h-48 md:m-4 md:left-1/3"
+    className="absolute w-24 h-24 m-2 opacity-10 top-2/3 left-1/4 md:w-48 md:h-48 md:m-4 md:left-1/3 xl:w-48 xl:h-48 xl:m-4 xl:left-1/3"
     src={huellas}
     alt="Huellas"
   />
 
   {/* Texto principal */}
-  <div className="order-2 w-full h-auto mx-1 mt-6 text-3xl text-center md:w-2/3 md:text-5xl md:order-1 ">
-    <p className="font-semibold text-[rgb(113,97,239)] hover:text-[#b298dc] leading-tight mb-6 md:mb-16 font-itim m-3">
+  <div className="order-2 w-full h-auto mx-1 mt-6 text-3xl text-center md:w-2/3 md:text-5xl md:order-1  xl:w-2/3 xl:text-5xl xl:order-1 ">
+    <p className="font-semibold text-[rgb(113,97,239)] hover:text-[#b298dc] leading-tight mb-6 md:mb-16 font-itim m-3 xl:mb-16 ">
       Descubre el compañero perfecto para tu vida: Encuentra la raza de perro que se adapta a ti y a tu familia!
     </p>
     <a
       href="https://wa.me/+573144695811"
       target="_blank"
       rel="noopener noreferrer"
-      className="p-2 md:p-3 text-2xl md:text-2xl font-semibold text-white bg-[#724b82] rounded-full flex items-center justify-center hover:bg-[#5d3d66] transition duration-150 w-40 md:w-64 mx-auto md:mt-16"
+      className="p-2 md:p-3 text-2xl md:text-2xl font-semibold text-white bg-[#724b82] rounded-full flex items-center justify-center hover:bg-[#5d3d66] transition duration-150 w-40 md:w-64 mx-auto md:mt-16  xl:w-64  xl:mt-16 xl:p-3 xl:text-2xl"
     >
       Me interesa
     </a>
   </div>
 
   {/* Carrusel */}
-  <div className="order-1 w-full pb-2 md:w-1/2 md:order-2">
+  <div className="order-1 w-full pb-2 md:w-1/2 md:order-2  xl:w-1/2 xl:order-2">
     <Swiper
       effect={"coverflow"}
       grabCursor={true}
