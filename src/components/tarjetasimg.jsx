@@ -10,7 +10,7 @@ export const Cards = ({ data }) => {
       <img
         src={url}
         alt={breedName}
-        className="object-cover h-40 mx-auto transition-transform duration-300 ease-in-out rounded-full w-45 imagenes group-hover:scale-110" // Ajusta aquí el tamaño (por ejemplo, 32x32)
+        className="object-cover h-40 mx-auto transition-transform duration-300 ease-in-out rounded-full min-w-56 imagenes group-hover:scale-110 max-w-56 w-full" // Ajusta aquí el tamaño (por ejemplo, 32x32)
       />
       <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out bg-purple-900 bg-opacity-50 opacity-0 group-hover:opacity-100">
         <p className="font-semibold text-white">{breedName}</p>

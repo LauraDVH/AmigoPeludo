@@ -49,38 +49,39 @@ const Feed = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 gap-2 gap-x-0 sm:grid-cols-3 md:grid-cols-4">
-    
-      {loading ? (
-        <div className="flex justify-center mt-4 col-span-full">
-          <div className="w-8 h-8 border-4 border-blue-500 rounded-full loader border-t-transparent animate-spin"></div>
-        </div>
-      ) : images.length > 0 ? (
-        images.slice(0, visibleImages).map((image) => (
-          <div
-            key={image.id}
-            className="flex justify-center overflow-hidden rounded-full"
-          >
-            <Cards data={image} />
+    <>
+      <div className="grid grid-cols-1 gap-2 gap-x-0 sm:grid-cols-3 md:grid-cols-4">
+        {loading ? (
+          <div className="flex justify-center mt-4 col-span-full">
+            <div className="w-8 h-8 border-4 border-blue-500 rounded-full loader border-t-transparent animate-spin"></div>
           </div>
-        ))
-      ) : (
-        <div className="flex justify-center mt-4 col-span-full">
-          <p>No hay imágenes disponibles.</p>
-        </div>
-      )}
+        ) : images.length > 0 ? (
+          images.slice(0, visibleImages).map((image) => (
+            <div
+              key={image.id}
+              className="flex justify-center overflow-hidden rounded-full"
+            >
+              <Cards data={image} />
+            </div>
+          ))
+        ) : (
+          <div className="flex justify-center mt-4 col-span-full">
+            <p>No hay imágenes disponibles.</p>
+          </div>
+        )}
+      </div>
 
       {visibleImages < images.length && (
         <div className="flex justify-center mt-2  ">
           <button
             onClick={loadMoreImages}
-            className="px-4 py-2 text-white bg-purple-700 rounded-full hover:bg-purple-800 ml-[75vw] mb-3 border-none md:px-8 md:py-3" 
+            className="px-4 py-2 text-white bg-purple-700 rounded-full hover:bg-purple-800  mb-3 border-none md:px-8 md:py-3"
           >
             Ver más
           </button>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -70,7 +70,7 @@ export const Home = () => {
       slidesPerView={1.5}
       spaceBetween={20}
       autoplay={{
-        delay: 4000,
+        delay: 3000,
         disableOnInteraction: false,
       }}
       speed={800}
