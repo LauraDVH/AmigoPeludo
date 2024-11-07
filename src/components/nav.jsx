@@ -16,10 +16,10 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className="top-0 left-0 w-full flex items-center p-6 space-x-5 uppercase border-b bg-[#724b82] border-solid justify-between z-20 text-[1rem]">
+      <nav className="top-0 left-0 w-full flex items-center p-6 space-x-5 uppercase border-b bg-gradient-to-r bg-gradient-to-r from-[#724b82] via-[#b06a9c] to-[#724b82] border-solid justify-between z-20 text-[1rem]">
         {/* Contenedor del ícono */}
         <div className="flex imagen items-center space-x-3 [@media(max-width:640px)]:relative [@media(max-width:640px)]:left-12">
-          <img src='/img/icono.PNG' alt="Icono" className="w-30 h-15" />
+          <img src='/img/icono.png' alt="Icono" className="w-30 h-15" />
         </div>
         {/* Menú de navegación en pantallas grandes */}
         <div className="space-x-10 hidden md:flex mr-8">
