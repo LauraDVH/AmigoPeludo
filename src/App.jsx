@@ -5,7 +5,8 @@ import {
   Nav,
   Home,
   Nosotros,
-  Peludos
+  Peludos, 
+  Footer
 } from "./pages/index";
 import "./App.css";
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros/>} />
           {/* <Route path="*" element={<Error404 />} /> */}
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )

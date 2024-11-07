@@ -7,9 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {  
-        'league Spartan': ['League Spartan', 'sans-serif'], 
-        'limelight': ['Limelight', 'sans-serif'],  
- 
+        'itim': ['Itim', 'sans-serif'], 
       },  
     },
   },
